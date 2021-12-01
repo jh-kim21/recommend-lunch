@@ -12,6 +12,7 @@ import {
   Button
 } from "shards-react";
 
+import Map from "../components/common/Map";
 import PageTitle from "../components/common/PageTitle";
 
 class MainView extends React.Component {
@@ -33,6 +34,10 @@ class MainView extends React.Component {
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
           <PageTitle sm="4" title="점메추" subtitle="점심 메뉴 추천" className="text-sm-left" />
+        </Row>
+
+        <Row>
+          <Map/>
         </Row>
       </Container>
     );
