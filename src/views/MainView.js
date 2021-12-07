@@ -4,16 +4,11 @@ import React from "react";
 import {
   Container,
   Row,
-  Col,
-  Card,
-  CardBody,
-  CardFooter,
-  Badge,
-  Button
 } from "shards-react";
 
 import Map from "../components/common/Map";
 import PageTitle from "../components/common/PageTitle";
+import PlaceAPI from '../utils/place';
 
 class MainView extends React.Component {
   constructor(props) {
@@ -24,10 +19,10 @@ class MainView extends React.Component {
   }
 
   render() {
-    // const {
-    //   PostsListOne,
 
-    // } = this.state;
+    let placeApi = PlaceAPI.prototype;
+    //placeApi.nearbySearch(37.274988, 127.080416, 1500);
+    placeApi.getPlaceDetail('ChIJr4nxJDtbezURGtp06t41HX8');
 
     return (
       <Container fluid className="main-content-container px-4">

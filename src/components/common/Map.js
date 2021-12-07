@@ -16,18 +16,19 @@ class Map extends Component {
   render() {
 
     let apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
+    let props = this.props;
 
     return (
       // Important! Always set the container height explicitly
       <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: apiKey}}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
+          defaultCenter={props.center}
+          defaultZoom={props.zoom}
         >
           <AnyReactComponent
-            lat={37.274988}
-            lng={127.080416}
+            lat={props.center.lat}
+            lng={props.center.lng}
             text="My Marker"
           />
         </GoogleMapReact>
