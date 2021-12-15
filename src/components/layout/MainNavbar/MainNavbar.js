@@ -1,11 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { Container, Navbar } from "shards-react";
+import { Container, Navbar, Nav, NavItem, NavLink, Badge} from "shards-react";
 
-import NavbarSearch from "./NavbarSearch";
-import NavbarNav from "./NavbarNav/NavbarNav";
-import NavbarToggle from "./NavbarToggle";
+import MainNav from "./NavbarNav/MainNav";
 
 const MainNavbar = ({ layout, stickyTop }) => {
   const classes = classNames(
@@ -17,10 +15,13 @@ const MainNavbar = ({ layout, stickyTop }) => {
   return (
     <div className={classes}>
       <Container className="p-0">
-        <Navbar type="light" className="align-items-stretch flex-md-nowrap p-0">
+        <Navbar type="light" className="align-items-center d-flex justify-content-between p-0">
           {/* <NavbarSearch />
           <NavbarNav />
           <NavbarToggle /> */}
+          <img className="user-avatar " alt="home" src={require("./../../../images/logo.png")} />
+          <MainNav/>
+          <label className="user-avatar mr-5" alt="empty"  />
         </Navbar>
       </Container>
     </div>

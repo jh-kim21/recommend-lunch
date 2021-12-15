@@ -55,6 +55,7 @@ class MainView extends React.Component {
   TransactionDetailView() {
     this.setState(prevState => ({
     }));
+    window.location.href = "/detail"
   }
 
   render() {
