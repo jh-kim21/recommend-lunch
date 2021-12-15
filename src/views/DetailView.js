@@ -13,6 +13,7 @@ import {
 } from "shards-react";
 
 import PageTitle from "../components/common/PageTitle";
+import Discussions from "./../components/blog/Discussions";
 
 class DetailView extends React.Component {
   constructor(props) {
@@ -33,6 +34,9 @@ class DetailView extends React.Component {
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
           <PageTitle sm="4" title="Detail View" subtitle="점심 메뉴 추천" className="text-sm-left" />
+        </Row>
+        <Row>
+          <Discussions title="리뷰"/>
         </Row>
       </Container>
     );
