@@ -28,7 +28,8 @@ class MainView extends React.Component {
           body: "돈까스가 맛있어요",
           date: "2019.12.08"
         }
-      ]
+      ],
+      placeList : []
       // First list of posts.
     };
 
@@ -58,11 +59,15 @@ class MainView extends React.Component {
     window.location.href = "/detail"
   }
 
-  render() {
-
+  componentWillMount(){
     let placeApi = PlaceAPI.prototype;
-    //placeApi.nearbySearch(37.274988, 127.080416, 1500);
-    placeApi.getPlaceDetail('ChIJr4nxJDtbezURGtp06t41HX8');
+
+    placeApi.nearbySearch(37.274988, 127.080416, 1500).then(function (response) {
+      this.setState({placeList:JSON.stringify(response.data.results)});
+    }.bind(this));
+  }
+
+  render() {
 
     const {
       PostsListOne,

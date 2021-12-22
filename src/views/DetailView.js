@@ -13,6 +13,7 @@ import {
 } from "shards-react";
 
 import PageTitle from "../components/common/PageTitle";
+import PlaceAPI from "../utils/place";
 import Discussions from "./../components/blog/Discussions";
 
 class DetailView extends React.Component {
@@ -20,7 +21,17 @@ class DetailView extends React.Component {
     super(props);
     this.state = {
       // First list of posts.
+      placeDetail : {}
     };
+  }
+
+  componentDidMount(){
+    let placeApi = PlaceAPI.prototype;
+
+    placeApi.getPlaceDetail('ChIJr4nxJDtbezURGtp06t41HX8').then(function (response) {
+      this.setState({placeDetail:JSON.stringify(response.data.results)});
+    }.bind(this));
+    
   }
 
   render() {
@@ -28,6 +39,8 @@ class DetailView extends React.Component {
     //   PostsListOne,
 
     // } = this.state;
+
+    console.log(this.state.placeDetail);
 
     return (
       <Container fluid className="main-content-container px-4">
