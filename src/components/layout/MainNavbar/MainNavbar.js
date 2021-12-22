@@ -12,6 +12,10 @@ const MainNavbar = ({ layout, stickyTop }) => {
     stickyTop && "sticky-top"
   );
 
+  const logoStyle ={
+    marginLeft : "1rem"
+  }
+
   return (
     <div className={classes}>
       <Container className="p-0">
@@ -19,7 +23,7 @@ const MainNavbar = ({ layout, stickyTop }) => {
           {/* <NavbarSearch />
           <NavbarNav />
           <NavbarToggle /> */}
-          <img className="user-avatar " alt="home" src={require("./../../../images/logo.png")} />
+          <img style={logoStyle} className="user-avatar " alt="home" src={require("./../../../images/logo.png")} />
           <MainNav/>
           <label className="user-avatar mr-5" alt="empty"  />
         </Navbar>

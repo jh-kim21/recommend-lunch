@@ -31,7 +31,6 @@ class DetailView extends React.Component {
     placeApi.getPlaceDetail('ChIJr4nxJDtbezURGtp06t41HX8').then(function (response) {
       this.setState({placeDetail:JSON.stringify(response.data.results)});
     }.bind(this));
-    
   }
 
   render() {

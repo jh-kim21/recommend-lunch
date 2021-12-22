@@ -85,7 +85,7 @@ class MainView extends React.Component {
         </Row>
 
         <Row className="py-3">
-          <Col lg="0" className="">
+          <Col lg="0" className="col-sm-6">
             <Button outline={this.state.isWalk} theme="info" className="mb-2 mr-1" onClick={this.ClickWalk}>
               도보(1km 이내)
             </Button>
@@ -93,15 +93,15 @@ class MainView extends React.Component {
               차량(1km 이상)
             </Button>
           </Col>
-          <Col lg="4" className="">
+          <Col lg="4" className="col-sm-6" >
             <Button theme="secondary" className="mb-2 mr-1" onClick={this.SetTodayMenu}>
               오늘의 메뉴는?
             </Button>
           </Col>
         </Row>
 
-        <Row className="py-3">
-          <Card className="mb-0">
+        <Row >
+          <Card className="mb-0 col-sm-12">
             <CardHeader className="border-bottom">
               <h3 className="m-0
               ">오늘의 메뉴는 ? 미소야</h3>
