@@ -31,7 +31,6 @@ export default class MainNav extends React.Component {
               <img className="user-avatar rounded-circle " alt="home" src={require("./../../../../images/home.png")} />
             </div>
           </NavLink>
-
         </NavItem>
       </Nav>
     );
