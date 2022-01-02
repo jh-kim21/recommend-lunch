@@ -15,6 +15,7 @@ import {
 import PageTitle from "../components/common/PageTitle";
 import PlaceAPI from "../utils/place";
 import Discussions from "./../components/blog/Discussions";
+import DetailTopView from "./DetailTopView";
 
 class DetailView extends React.Component {
   constructor(props) {
@@ -46,6 +47,11 @@ class DetailView extends React.Component {
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
           <PageTitle sm="4" title="Detail View" subtitle="점심 메뉴 추천" className="text-sm-left" />
+        </Row>
+        <Row>
+          <DetailTopView>
+            
+          </DetailTopView>
         </Row>
         <Row>
           <Discussions title="리뷰"/>

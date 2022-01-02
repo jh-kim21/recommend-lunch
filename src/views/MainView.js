@@ -67,11 +67,11 @@ class MainView extends React.Component {
   }
 
   componentWillMount(){
-    let placeApi = PlaceAPI.prototype;
+    // let placeApi = PlaceAPI.prototype;
 
-    placeApi.nearbySearch(37.274988, 127.080416, 1500).then(function (response) {
-      this.setState({placeList:JSON.stringify(response.data.results)});
-    }.bind(this));
+    // placeApi.nearbySearch(37.274988, 127.080416, 1500).then(function (response) {
+    //   this.setState({placeList:JSON.stringify(response.data.results)});
+    // }.bind(this));
   }
 
   render() {

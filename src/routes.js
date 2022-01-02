@@ -8,6 +8,7 @@ import { DefaultLayout } from "./layouts";
 import MainView from "./views/MainView";
 import DetailView from "./views/DetailView";
 import RestaurantListView from "./views/RestaurantListView";
+import CommentCRUD from "./views/CommentCRUD";
 
 export default [
   // {
@@ -31,6 +32,11 @@ export default [
     path: "/list",
     layout: DefaultLayout,
     component: RestaurantListView
+  },
+  {
+    path :"/CURD",
+    layout: DefaultLayout,
+    component: CommentCRUD
   }
   // {
   //   path: "/errors",
