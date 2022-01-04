@@ -57,7 +57,6 @@ class CommentCRUD extends Component {
     }
 
     Delete = (e) =>{
-        console.log(e.target.value);
         db.doc(e.target.value).delete().then(() => {
             console.log("Document successfully deleted!");
         }).catch((error) => {
@@ -68,6 +67,16 @@ class CommentCRUD extends Component {
     Update = (e) => {
         //TODO : 업데이트 개발 예정
 
+        db.doc(e.target.value).update({
+            comment: this.state.comment
+        })
+            .then(() => {
+                console.log("Document successfully updated!");
+            })
+            .catch((error) => {
+                // The document probably doesn't exist.
+                console.error("Error updating document: ", error);
+            });
     }
 
 
@@ -83,7 +92,7 @@ class CommentCRUD extends Component {
                         {this.state.comments.map(commentItem =>(
                             <Col>
                             <ListGroupItem type="text">{commentItem.comment}</ListGroupItem>
-                            <Button>수 정</Button>
+                            <Button value={commentItem.id} onClick={this.Update}>수 정</Button>
                             <Button  value={commentItem.id} onClick={this.Delete}>삭 제</Button>
                             </Col>
                         ))}
