@@ -8,7 +8,6 @@ import {
 } from "shards-react";
 
 import Map from "../components/common/Map";
-import PageTitle from "../components/common/PageTitle";
 import PlaceAPI from '../utils/place';
 
 
@@ -30,7 +29,11 @@ class MainView extends React.Component {
           date: "2021.12.08"
         }
       ],
-      placeList: []
+      placeList: [],
+      center: {
+        lat: 37.274988, 
+        lng: 127.080416
+      }
       // First list of posts.
     };
 
@@ -70,7 +73,7 @@ class MainView extends React.Component {
     let placeApi = PlaceAPI.prototype;
 
     placeApi.nearbySearch(37.274988, 127.080416, 1500).then(function (response) {
-      this.setState({ placeList: JSON.stringify(response.data.results) });
+      this.setState({ placeList: response.data.results});
     }.bind(this));
   }
 
@@ -78,13 +81,15 @@ class MainView extends React.Component {
 
     const {
       PostsListOne,
+      placeList,
+      center
     } = this.state;
 
     const imageStyle = {
       height: "150px"
     }
 
-    console.log(this.state.placeList)
+    console.log(placeList)
 
     return (
       <Container fluid className="main-content-container px-4">
@@ -125,8 +130,9 @@ class MainView extends React.Component {
                 <h6 >별점 3.4</h6>
               </Row>
             </CardHeader>
+            
             <CardBody>
-              <Map center={{lat:37.2764052, lng:127.0713297}}/>
+              <Map center={{lat:center.lat, lng:center.lat}}/>
 
               <Row className="mb-2 col-lg-12 col-sm-12 ">
                 <img className="user-avatar" style={imageStyle} src={require("./../images/misoya.png")} />
