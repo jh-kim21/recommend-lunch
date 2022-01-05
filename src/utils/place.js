@@ -13,7 +13,7 @@ export default class PlaceAPI {
 		return axios(config);
 	}
 
-	getPlaceDetail(placeId){
+	async getPlaceDetail(placeId){
 		var config = {
 			method: 'get',
 			url: `/maps/api/place/details/json?place_id=${placeId}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
