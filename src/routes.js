@@ -34,7 +34,7 @@ export default [
     component: RestaurantListView
   },
   {
-    path :"/CURD",
+    path :"/CRUD",
     layout: DefaultLayout,
     component: CommentCRUD
   }
