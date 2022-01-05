@@ -17,8 +17,8 @@ class MainView extends React.Component {
     super(props);
     this.state = {
       isWalk: true,
-      isDrive : false,
-      PostsListOne : [
+      isDrive: false,
+      PostsListOne: [
         {
           backgroundImage: require("./../images/misoya2.jpg"),
           category: "일식",
@@ -30,7 +30,7 @@ class MainView extends React.Component {
           date: "2021.12.08"
         }
       ],
-      placeList : []
+      placeList: []
       // First list of posts.
     };
 
@@ -66,11 +66,11 @@ class MainView extends React.Component {
     // window.location.href = "/list"
   }
 
-  componentWillMount(){
+  componentWillMount() {
     let placeApi = PlaceAPI.prototype;
 
     placeApi.nearbySearch(37.274988, 127.080416, 1500).then(function (response) {
-      this.setState({placeList:JSON.stringify(response.data.results)});
+      this.setState({ placeList: JSON.stringify(response.data.results) });
     }.bind(this));
   }
 
@@ -80,8 +80,8 @@ class MainView extends React.Component {
       PostsListOne,
     } = this.state;
 
-    const imageStyle ={
-      height : "150px"
+    const imageStyle = {
+      height: "150px"
     }
 
     console.log(this.state.placeList)
@@ -94,7 +94,7 @@ class MainView extends React.Component {
         </Row> */}
 
         <Row className="px-3 py-2">
-            <h6 className="m-0">현재 위치 : 흥덕유타워</h6>
+          <h6 className="m-0">현재 위치 : 흥덕유타워</h6>
         </Row>
 
         <Row className="py-2">
@@ -107,7 +107,7 @@ class MainView extends React.Component {
             </Button>
           </Col>
           <Col lg="6" sm="6" className="d-flex flex-row-reverse" >
-            <Button theme="secondary" className="mb-2 mr-1"  onClick={this.SetTodayMenu}>
+            <Button theme="secondary" className="mb-2 mr-1" onClick={this.SetTodayMenu}>
               오늘의 메뉴는?
             </Button>
           </Col>
@@ -122,13 +122,13 @@ class MainView extends React.Component {
                 </Col>
               </Row>
               <Row className="m-0 d-flex flex-row-reverse" >
-                  <h6 >별점 3.4</h6>
+                <h6 >별점 3.4</h6>
               </Row>
             </CardHeader>
             <CardBody>
-              <Map />
+              <Map center={{lat:37.2764052, lng:127.0713297}}/>
 
-              <Row  className="mb-2 col-lg-12 col-sm-12 ">
+              <Row className="mb-2 col-lg-12 col-sm-12 ">
                 <img className="user-avatar" style={imageStyle} src={require("./../images/misoya.png")} />
                 <Col className="ml-2 border" >
                   <Row className="m-1 border-bottom">
@@ -192,7 +192,7 @@ class MainView extends React.Component {
                 </Link>
               </Row>
             </CardBody>
-            
+
           </Card>
         </Row>
 

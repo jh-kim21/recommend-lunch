@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const AnyReactComponent = ({ icon }) => <div><img src={icon}/></div>;
 
 class Map extends Component {
   static defaultProps = {
     // u-tower
     center: {
-      lat: 37.274988,
+      lat: 37.274988, 
       lng: 127.080416
     },
     zoom: 16
@@ -17,6 +17,9 @@ class Map extends Component {
 
     let apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
     let props = this.props;
+
+    const image =
+    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
 
     return (
       // Important! Always set the container height explicitly
@@ -29,7 +32,7 @@ class Map extends Component {
           <AnyReactComponent
             lat={props.center.lat}
             lng={props.center.lng}
-            text="My Marker"
+            icon={image}
           />
         </GoogleMapReact>
       </div>
