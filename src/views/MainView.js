@@ -92,7 +92,7 @@ class MainView extends React.Component {
     console.log(placeList)
 
     return (
-      <Container fluid className="main-content-container px-4">
+      <Container fluid className="main-content-container">
         {/* Page Header */}
         {/* <Row noGutters className="page-header py-2">
           <PageTitle sm="4" title="점메추" subtitle="점심 메뉴 추천" className="text-sm-left" />
