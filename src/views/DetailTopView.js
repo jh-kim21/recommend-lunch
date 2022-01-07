@@ -11,10 +11,11 @@ import {
 class DetailTopView extends Component {
     render() {
         return (
-            <Container fluid className="main-content-container px-4">
+            <Container fluid className="main-content-container">
             <Row >
              <Card className="mb-4 col-lg-12 col-sm-12">
                <CardBody>
+               <h3>아비꼬</h3>
                  <Map zoom={16}/>           
                </CardBody>     
                <CardFooter className="border-bottom">

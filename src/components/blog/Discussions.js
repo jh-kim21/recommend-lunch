@@ -12,7 +12,7 @@ import {
 } from "shards-react";
 
 const Discussions = ({ title, discussions }) => (
-  <Card small className="blog-comments">
+  <Card small className="blog-comments col-sm-12">
     <CardHeader className="border-bottom">
       <h6 className="m-0">{title}</h6>
     </CardHeader>
@@ -73,7 +73,7 @@ const Discussions = ({ title, discussions }) => (
     <CardFooter className="border-top">
       <Row>
         <Col className="text-center view-report">
-          <Button theme="white" type="submit">
+          <Button className="btn btn-info" type="submit">
             View All Comments
           </Button>
         </Col>

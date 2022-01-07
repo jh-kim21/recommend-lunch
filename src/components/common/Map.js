@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
-const AnyReactComponent = ({ icon }) => <div><img src={icon}/></div>;
+const AnyReactComponent = ({ icon }) => <div><img src={icon} style={{width:'30px'}}/></div>;
 
 class Map extends Component {
   static defaultProps = {
@@ -10,7 +10,7 @@ class Map extends Component {
       lat: 37.274988, 
       lng: 127.080416
     },
-    zoom: 16
+    zoom: 17
   };
 
   render() {
@@ -19,11 +19,11 @@ class Map extends Component {
     let props = this.props;
 
     const image =
-    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+    "place.png";
 
     return (
       // Important! Always set the container height explicitly
-      <div  className="mb-2" style={{ height: '40vh', width: '100%' }}>
+      <div className="mb-2" style={{ height: '40vh', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: apiKey}}
           defaultCenter={props.center}
