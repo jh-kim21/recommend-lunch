@@ -15,6 +15,7 @@ import {
 import PageTitle from "../components/common/PageTitle";
 import PlaceAPI from "../utils/place";
 import Discussions from "./../components/blog/Discussions";
+import Reviews from "./../components/blog/Reviews";
 import DetailTopView from "./DetailTopView";
 
 class DetailView extends React.Component {
@@ -42,6 +43,7 @@ class DetailView extends React.Component {
 
     console.log(this.state.placeDetail);
 
+    var placeId = this.state.placeDetail.place_id;
     return (
       <Container fluid className="main-content-container">
         {/* Page Header */}
@@ -54,7 +56,8 @@ class DetailView extends React.Component {
           </DetailTopView>
         </Row>
         <Row>
-          <Discussions title="리뷰"/>
+          {/* <Discussions title="리뷰"/> */}
+          <Reviews title="리뷰" placeId={placeId} reviews={this.state.placeDetail.reviews}/>
         </Row>
       </Container>
     );

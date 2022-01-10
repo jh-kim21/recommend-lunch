@@ -90,7 +90,8 @@ Discussions.propTypes = {
   /**
    * The discussions dataset.
    */
-  discussions: PropTypes.array
+  discussions: PropTypes.array,
+  placeDetail: PropTypes.array,
 };
 
 Discussions.defaultProps = {
