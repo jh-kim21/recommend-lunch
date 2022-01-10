@@ -25,9 +25,9 @@ class DetailTopView extends Component {
         <Row >
           <Card className="mb-4 col-lg-12 col-sm-12">
             <CardBody>
-              <h3>{placeDetail["name"]}</h3>
+              <h3 style={{marginBottom:'1rem', color:'orange'}}>{placeDetail.name}</h3>
               { Object.keys(placeDetail).length !== 0 ? 
-                <Map center={{ lat: placeDetail["geometry"]["location"]["lat"], lng: placeDetail["geometry"]["location"]["lng"] }} />
+                <Map center={{ lat: placeDetail.geometry.location.lat, lng: placeDetail.geometry.location.lng}} />
                 : ""
               }
             </CardBody>

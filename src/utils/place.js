@@ -22,4 +22,13 @@ export default class PlaceAPI {
 		  
 		  return axios(config);
 	}
+
+	async getPlacePhoto(photoRef){
+		var config = {
+			method: 'get',
+			url: `maps/api/place/photo?maxwidth=400&photo_reference=${photoRef}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+		};
+
+		return axios(config);
+	}
 }

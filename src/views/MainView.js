@@ -156,17 +156,17 @@ class MainView extends React.Component {
                     </CardHeader>
 
                     <CardBody>
-                      <Map center={{ lat: resultPlace["geometry"]["location"]["lat"], lng: resultPlace["geometry"]["location"]["lng"] }} />
+                      <Map center={{ lat: resultPlace.geometry.location.lat, lng: resultPlace.geometry.location.lng }} />
 
                       <Row className="mb-2 col-lg-12 col-sm-12" style={{padding:'0px', marginLeft:'0px'}}>
                         <img className="user-avatar" style={imageStyle} src={require("./../images/misoya.png")} />
                         <Col className="ml-2 border" >
-                          <Row className="m-1 border-bottom">
-                            <h3 >미소야</h3>
+                          {/* <Row className="m-1 border-bottom">
+                            <h3 >{resultPlace.name}</h3>
                             <Col lg="12" sm="12" className="d-flex flex-row-reverse" >
                               <h6>별점 3.4</h6>
                             </Col>
-                          </Row>
+                          </Row> */}
                           <h6 className="m-1">미소야는 2000년에 론칭한 일식을 판매하는 토종 브랜드로써 올해로 횟수로 21년째를 맞은 전통이 깊은 외식 브랜드 입니다. 돈카츠, 우동, 소바, 초밥 등의 다양한...</h6>
                         </Col>
                       </Row>
@@ -215,7 +215,7 @@ class MainView extends React.Component {
                         {/* <Button theme="info" lg="6" sm="6" onClick={this.TransactionDetailView}>
                   더 보기 또는 자세히 보기
                 </Button> */}
-                        <Link to={{pathname:"/detail", state:{placeId:resultPlace["place_id"]}}} className="row-vh d-flex flex-column">
+                        <Link to={{pathname:"/detail", state:{placeId:resultPlace.place_id}}} className="row-vh d-flex flex-column">
                           <Button theme="info" onClick={this.TransactionDetailView}>
                             더 보기 또는 자세히 보기
                           </Button>
