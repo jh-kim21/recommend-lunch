@@ -1,6 +1,6 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
 
-import React from "react";
+import React, { Component } from "react";
 import {
   Container,
   Row,
@@ -18,7 +18,7 @@ import Discussions from "./../components/blog/Discussions";
 import Reviews from "./../components/blog/Reviews";
 import DetailTopView from "./DetailTopView";
 
-class DetailView extends React.Component {
+class DetailView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,9 +28,18 @@ class DetailView extends React.Component {
   }
 
   componentDidMount(){
+
+    const { location,history } = this.props;
+    if(location.state === undefined){
+      return;
+    }
+
+    const placeId = location.state.placeId;
+    console.log(placeId);
+
     let placeApi = PlaceAPI.prototype;
 
-    placeApi.getPlaceDetail('ChIJr4nxJDtbezURGtp06t41HX8').then(function (response) {
+    placeApi.getPlaceDetail(placeId).then(function (response) {
       this.setState({placeDetail:response.data.result});
     }.bind(this));
   }
@@ -51,7 +60,7 @@ class DetailView extends React.Component {
           <PageTitle sm="4" title="오늘의 메뉴는?" subtitle="점심 메뉴 추천" className="text-sm-left" />
         </Row>
         <Row>
-          <DetailTopView>
+          <DetailTopView placeDetail={this.state.placeDetail}>
             
           </DetailTopView>
         </Row>

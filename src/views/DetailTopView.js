@@ -2,32 +2,51 @@ import React, { Component } from "react";
 import Map from "../components/common/Map";
 import PlaceAPI from '../utils/place';
 import {
-    Container, Col, Row, Badge,
-    Card, CardHeader, CardBody, Button, CardFooter
-  } from "shards-react";
+  Container, Col, Row, Badge,
+  Card, CardHeader, CardBody, Button, CardFooter
+} from "shards-react";
 
-  
+
 
 class DetailTopView extends Component {
-    render() {
-        return (
-            <Container fluid className="main-content-container">
-            <Row >
-             <Card className="mb-4 col-lg-12 col-sm-12">
-               <CardBody>
-               <h3>아비꼬</h3>
-                 <Map zoom={16}/>           
-               </CardBody>     
-               <CardFooter className="border-bottom">
-                 <Row className="m-0 d-flex flex-row-reverse" >
-                     <h6 >별점 3.4</h6>
-                 </Row>
-               </CardFooter>       
-             </Card>
-           </Row>
-         </Container>
-        );
-    }
+
+  constructor(props){
+    super(props);
+
+  }
+
+  render() {
+    const {
+      placeDetail
+    } = this.props;
+
+    return (
+      <Container fluid className="main-content-container">
+        <Row >
+          <Card className="mb-4 col-lg-12 col-sm-12">
+            <CardBody>
+              <h3>{placeDetail["name"]}</h3>
+              { Object.keys(placeDetail).length !== 0 ? 
+                <Map center={{ lat: placeDetail["geometry"]["location"]["lat"], lng: placeDetail["geometry"]["location"]["lng"] }} />
+                : ""
+              }
+            </CardBody>
+            <CardFooter className="border-bottom">
+              <Row className="m-0 d-flex flex-row-reverse" >
+                {placeDetail.rating ?
+                        <>
+                          <Row>
+                              <h6 style={{margin:'0px', flex:1, textAlign:'right'}}> 별점 {placeDetail.rating} </h6>
+                          </Row>
+                        </>
+                      : ""}
+              </Row>
+            </CardFooter>
+          </Card>
+        </Row>
+      </Container>
+    );
+  }
 }
 
 export default DetailTopView;

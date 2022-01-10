@@ -21,6 +21,10 @@ class Map extends Component {
     this.setState({center : props.center});
   }
 
+  componentDidMount(){
+    this.setState({center : this.props.center});
+  }
+
   render() {
 
     let apiKey = process.env.REACT_APP_GOOGLE_API_KEY;

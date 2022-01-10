@@ -215,7 +215,7 @@ class MainView extends React.Component {
                         {/* <Button theme="info" lg="6" sm="6" onClick={this.TransactionDetailView}>
                   더 보기 또는 자세히 보기
                 </Button> */}
-                        <Link to="/detail" className="row-vh d-flex flex-column">
+                        <Link to={{pathname:"/detail", state:{placeId:resultPlace["place_id"]}}} className="row-vh d-flex flex-column">
                           <Button theme="info" onClick={this.TransactionDetailView}>
                             더 보기 또는 자세히 보기
                           </Button>
