@@ -50,46 +50,22 @@ class Reviews extends React.Component {
                         <div className="blog-comments__content">
                             {/* Content :: Title */}
                             <div className="blog-comments__meta text-mutes">
-                            <a className="text-secondary" href="#">
-                                {review.author_name} 
-                            </a>{" "}
-
-                            <span className="text-mutes">- {review.relative_time_description}</span> 
-
+                                <a className="text-secondary" href="#">
+                                    {review.author_name} 
+                                </a>{" "}
+                                <span className="text-mutes">- {review.relative_time_description}</span> 
                             </div>
 
                             {/* Content :: Body */}
                             <p className="m-0 my-1 mb-2 text-muted">{review.text}</p>
 
-                            {/* Content :: Actions */}
-                            <div className="blog-comments__actions">
-                            <ButtonGroup size="sm">
-                                <Button theme="white">
-                                <span className="text-success">
-                                    <i className="material-icons">check</i>
-                                </span>{" "}
-                                Approve
-                                </Button>
-                                <Button theme="white">
-                                <span className="text-danger">
-                                    <i className="material-icons">clear</i>
-                                </span>{" "}
-                                Reject
-                                </Button>
-                                <Button theme="white">
-                                <span className="text-light">
-                                    <i className="material-icons">more_vert</i>
-                                </span>{" "}
-                                Edit
-                                </Button>
-                            </ButtonGroup>
-                            </div>
+                            <p className="m-0 my-1 mb-2 text-muted">별점 : {review.rating} 점</p>
                         </div>
                         </div>
                     ))}
                 </CardBody>
 
-                <CardFooter className="border-top">
+                {/* <CardFooter className="border-top">
                 <Row>
                     <Col className="text-center view-report">
                     <Button className="btn btn-info" type="submit">
@@ -97,7 +73,7 @@ class Reviews extends React.Component {
                     </Button>
                     </Col>
                 </Row>
-                </CardFooter>
+                </CardFooter> */}
             </Card>
         );
     }
