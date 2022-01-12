@@ -84,11 +84,12 @@ class MainView extends React.Component {
         this.business_status = (results[randomValue].opening_hours.open_now) ? "현재 영업중입니다." : "현재 영업중이 아닙니다.";
       }
       if (results[randomValue].photos !== undefined){
-        this.place_photo = results[randomValue].icon
-        // this.place_photo.url = placeApi.getPlacePhoto(results[randomValue].photos[0].photo_reference)
-        console.log(this.place_photo);
+        //this.place_photo = results[randomValue].icon
+        this.place_photo = placeApi.getPlacePhoto(results[randomValue].photos[0].photo_reference);
+        //console.log(this.place_photo);
         // console.log(results[randomValue].photos[0].getUrl({'maxWidth': 500, 'maxHeight': 500}));
       }
+
       this.setState({ 
         resultPlace: results[randomValue]
       });
