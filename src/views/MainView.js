@@ -55,15 +55,15 @@ class MainView extends React.Component {
   }
   ClickWalk() {
     this.setState(prevState => ({
-      isWalk: true,
-      isDrive: false,
+      isWalk: false,
+      isDrive: true,
       radius: 1000
     }));
   }
   ClickDrive() {
     this.setState(prevState => ({
-      isWalk: false,
-      isDrive: true,
+      isWalk: true,
+      isDrive: false,
       radius: 5000
     }));
   }
