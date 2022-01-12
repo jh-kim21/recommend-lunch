@@ -25,6 +25,12 @@ class DetailTopView extends Component {
         <Row >
           <Card className="mb-4 col-lg-12 col-sm-12">
           <CardHeader className="border-bottom">
+              <Row className="">
+                          <h5 className="m-0">오늘의 메뉴는 ? </h5>
+                      </Row>
+                      <Row className="mt-2">
+                      <h3 style={{marginBottom:'1rem', color:'orange'}}>{placeDetail.name}</h3>
+                      </Row>
               <Row className="m-0 d-flex flex-row-reverse" >
                 {placeDetail.rating ?
                         <>
@@ -36,7 +42,6 @@ class DetailTopView extends Component {
               </Row>
             </CardHeader>
             <CardBody>
-              <h3 style={{marginBottom:'1rem', color:'orange'}}>{placeDetail.name}</h3>
               { Object.keys(placeDetail).length !== 0 ? 
                 <Map center={{ lat: placeDetail.geometry.location.lat, lng: placeDetail.geometry.location.lng}} />
                 : ""

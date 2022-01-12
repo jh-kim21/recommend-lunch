@@ -57,7 +57,6 @@ class DetailView extends Component {
       <Container fluid className="main-content-container">
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
-          <PageTitle sm="4" title="오늘의 메뉴는?" subtitle="점심 메뉴 추천" className="text-sm-left" />
         </Row>
         <Row>
           <DetailTopView placeDetail={this.state.placeDetail}>
