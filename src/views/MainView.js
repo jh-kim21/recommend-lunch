@@ -34,7 +34,9 @@ class MainView extends React.Component {
         lat: 37.274988,
         lng: 127.080416
       },
-      radius: 1000
+      radius: 1000,
+      business_status: "영업중입니다.",
+      place_photo: "",
       // First list of posts.
     };
 
@@ -53,12 +55,16 @@ class MainView extends React.Component {
   }
   ClickWalk() {
     this.setState(prevState => ({
-      isWalk: !prevState.isWalk
+      isWalk: true,
+      isDrive: false,
+      radius: 1000
     }));
   }
   ClickDrive() {
     this.setState(prevState => ({
-      isDrive: !prevState.isDrive
+      isWalk: false,
+      isDrive: true,
+      radius: 5000
     }));
   }
   SetTodayMenu() {
@@ -74,7 +80,18 @@ class MainView extends React.Component {
       let results = response.data.results;
       let randomValue = this.getRandomInt(0, results.length);
 
-      this.setState({ resultPlace: results[randomValue] });
+      if (results[randomValue].opening_hours !== undefined) {
+        this.business_status = (results[randomValue].opening_hours.open_now) ? "현재 영업중입니다." : "현재 영업중이 아닙니다.";
+      }
+      if (results[randomValue].photos !== undefined){
+        this.place_photo = results[randomValue].icon
+        // this.place_photo.url = placeApi.getPlacePhoto(results[randomValue].photos[0].photo_reference)
+        console.log(this.place_photo);
+        // console.log(results[randomValue].photos[0].getUrl({'maxWidth': 500, 'maxHeight': 500}));
+      }
+      this.setState({ 
+        resultPlace: results[randomValue]
+      });
     }.bind(this));
   }
   TransactionDetailView() {
@@ -159,7 +176,8 @@ class MainView extends React.Component {
                       <Map center={{ lat: resultPlace.geometry.location.lat, lng: resultPlace.geometry.location.lng }} />
 
                       <Row className="mb-2 col-lg-12 col-sm-12" style={{padding:'0px', marginLeft:'0px'}}>
-                        <img className="user-avatar" style={imageStyle} src={require("./../images/misoya.png")} />
+                        <img className="user-avatar" style={imageStyle} src={this.place_photo} />
+                        {/* <img className="user-avatar" style={imageStyle} src={require("./../images/misoya.png")} /> */}
                         <Col className="ml-2 border" >
                           {/* <Row className="m-1 border-bottom">
                             <h3 >{resultPlace.name}</h3>
@@ -167,7 +185,8 @@ class MainView extends React.Component {
                               <h6>별점 3.4</h6>
                             </Col>
                           </Row> */}
-                          <h6 className="m-1">미소야는 2000년에 론칭한 일식을 판매하는 토종 브랜드로써 올해로 횟수로 21년째를 맞은 전통이 깊은 외식 브랜드 입니다. 돈카츠, 우동, 소바, 초밥 등의 다양한...</h6>
+                          <h6 className="m-1">주소 : {resultPlace.vicinity}</h6>
+                          <h6 className="m-1">{this.business_status}</h6>
                         </Col>
                       </Row>
 
