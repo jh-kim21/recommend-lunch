@@ -24,14 +24,7 @@ class DetailTopView extends Component {
       <Container fluid className="main-content-container">
         <Row >
           <Card className="mb-4 col-lg-12 col-sm-12">
-            <CardBody>
-              <h3 style={{marginBottom:'1rem', color:'orange'}}>{placeDetail.name}</h3>
-              { Object.keys(placeDetail).length !== 0 ? 
-                <Map center={{ lat: placeDetail.geometry.location.lat, lng: placeDetail.geometry.location.lng}} />
-                : ""
-              }
-            </CardBody>
-            <CardFooter className="border-bottom">
+          <CardHeader className="border-bottom">
               <Row className="m-0 d-flex flex-row-reverse" >
                 {placeDetail.rating ?
                         <>
@@ -41,7 +34,15 @@ class DetailTopView extends Component {
                         </>
                       : ""}
               </Row>
-            </CardFooter>
+            </CardHeader>
+            <CardBody>
+              <h3 style={{marginBottom:'1rem', color:'orange'}}>{placeDetail.name}</h3>
+              { Object.keys(placeDetail).length !== 0 ? 
+                <Map center={{ lat: placeDetail.geometry.location.lat, lng: placeDetail.geometry.location.lng}} />
+                : ""
+              }
+            </CardBody>
+
           </Card>
         </Row>
       </Container>
